@@ -37,7 +37,9 @@ const store = chrome.storage.sync;
             h = checkTime(today.getHours()),
             m = checkTime(today.getMinutes()),
             s = checkTime(today.getSeconds());
-        		document.getElementById('time').innerHTML = h + ":" + m;
+            let time = h+":"+m;
+            //time = timeTo12HrFormat(time);
+        		document.getElementById('time').innerHTML = time;
         	 	setTimeout(function () {
             startTime()
         }, 500);
@@ -129,5 +131,20 @@ function getdateDetails(){
 		year : yyyy
 	}
 
+}
+
+function timeTo12HrFormat(time)
+{
+
+    let time_part_array = time.split(":");
+    let ampm = 'AM';
+    if (time_part_array[0] >= 12) {
+        ampm = 'PM';
+    }
+    if (time_part_array[0] > 12) {
+        time_part_array[0] = time_part_array[0] - 12;
+    }
+    let formatted_time = `${time_part_array[0]}:${time_part_array[1]} <span class="am_pm">${ampm}<span>`;
+    return formatted_time;
 }
 
