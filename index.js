@@ -88,7 +88,7 @@ function insertinDom(){
 	document.getElementById('date').innerHTML = `${tab.dateDetails.day}, ${tab.dateDetails.month} ${tab.dateDetails.date}`;
 }
 function insertDevicesinDom(devices){
-	let format = "<span style='font-size: 15px;padding: 8px;;text-shadow: 0 0 2px gray;'><strong style='font-size: 15px;;text-shadow: 0 0 2px gray;'>DEVICE</strong> > LINK<span>";
+	let format = "<span style='font-size: 2vh;padding: 8px;;text-shadow: 0 0 2px gray;'><strong style='font-size: 2vh;text-shadow: 0 0 2px gray;'>DEVICE</strong> > LINK<span>";
 	for(let i= 0; i < devices.length; i++){
 		let lastSession = devices[i].sessions;
 		if(lastSession.length > 0){
