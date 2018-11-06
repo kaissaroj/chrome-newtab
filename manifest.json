@@ -1,0 +1,19 @@
+{
+	"manifest_version": 2,
+  	"name": "Simple Blank Tab",
+    "description": "Blank Tab with informations",
+    "version": "0.0.0.1",
+    "permissions" : [
+    		"bookmarks",
+        "storage",
+        "sessions",
+        "tabs",
+        "chrome://favicon/"],
+    "chrome_url_overrides" : {
+        "newtab": "newpage.html"
+    },
+    	"background": {
+		"scripts":["background.js"],
+		"persistent": false
+	}
+ }
