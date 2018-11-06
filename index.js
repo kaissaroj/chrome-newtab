@@ -2,24 +2,27 @@
 
 const store = chrome.storage.sync;
 
+
 (function(){
 
-	/**
-	*	 	Here you can pull lists of images from Unsplash Api
-	*		Images from Unplash (https://unsplash.com/)
-	*		For right now I am just becoming lazy
-	*/
+ 	/**
+ 	*	 	Here pull list of image from Unsplash Api
+ 	*		Images from Unplash (https://unsplash.com/)
+	**/
 
- fetch('./imagelists.json')
-  .then(resp => resp.json())
+	let dom = document.getElementById("bgimg");
+  	dom.style.backgroundColor =  'grey';
+
+   fetch('https://source.unsplash.com/random/1024x600')
+  .then(resp => resp)
   .then((imagelists) => {
-  		let max = imagelists.length - 1;
-  		let min =0;
-  		let ranImgIndex = Math.floor(Math.random()*(max-min+1)+min);
-  		let selectedImage = imagelists[ranImgIndex];
-  		let dom = document.getElementById("bgimg");
+  		let selectedImage = imagelists.url;
+  	  	let dom = document.getElementById("bgimg");
   		dom.style.backgroundImage = `url(${selectedImage})`;
-
+  })
+   .catch(() => {
+  		let dom = document.getElementById("bgimg");
+  		dom.style.backgroundColor =  'grey';
   });
 
 })();
@@ -83,7 +86,7 @@ function insertinDom(){
 	document.getElementById('date').innerHTML = `${tab.dateDetails.day}, ${tab.dateDetails.month} ${tab.dateDetails.date}`;
 }
 function insertDevicesinDom(devices){
-	let format = "<span style='font-size: 15px;padding: 8px;'><strong style='font-size: 15px;'>DEVICE</strong> > LINK<span>";
+	let format = "<span style='font-size: 15px;padding: 8px;;text-shadow: 0 0 2px gray;'><strong style='font-size: 15px;;text-shadow: 0 0 2px gray;'>DEVICE</strong> > LINK<span>";
 	for(let i= 0; i < devices.length; i++){
 		let lastSession = devices[i].sessions;
 		if(lastSession.length > 0){
