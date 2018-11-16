@@ -5,25 +5,51 @@ const store = chrome.storage.sync;
 
 (function(){
 
- 	/**
- 	*	 	Here pull list of image from Unsplash Api
- 	*		Images from Unplash (https://unsplash.com/)
-	**/
-
 	let dom = document.getElementById("bgimg");
   	dom.style.backgroundColor =  'grey';
+	let rand =Math.random();
+	rand = (rand<0.5)?Math.floor(rand):Math.ceil(rand);
 
-   fetch('https://source.unsplash.com/random/1024x600')
-  .then(resp => resp)
-  .then((imagelists) => {
-  		let selectedImage = imagelists.url;
-  	  	let dom = document.getElementById("bgimg");
-  		dom.style.backgroundImage = `url(${selectedImage})`;
-  })
-   .catch(() => {
+
+	rand == 0 ? fetchVideo() : fetchImage();
+	console.log(rand);
+  	function fetchVideo(){
+
+		   fetch('http://sarojsubedi.info.np/services/randomvid.php')
+		  .then(resp => resp.json())
+		  .then((vid) => {
+		  		console.log(vid.src);
+		  		insertVideo(vid.src);
+		  })
+		   .catch(() => {
+		  		error();
+		  });
+  	}
+  	function fetchImage(){
+		   fetch('https://source.unsplash.com/random/1024x600')
+		  .then(resp => resp)
+		  .then((imagelists) => {
+		  		let selectedImage = imagelists.url;
+		  	  	let dom = document.getElementById("bgimg");
+		  		dom.style.backgroundImage = `url(${selectedImage})`;
+		  })
+		   .catch(() => {
+		  		error();
+		  });
+  	}
+
+  	function error(){
   		let dom = document.getElementById("bgimg");
-  		dom.style.backgroundColor =  'grey';
-  });
+		dom.style.backgroundColor =  'grey';
+  	}
+
+  	function insertVideo(src){
+		var video = document.getElementById('myVideo');
+		var source = document.createElement('source');
+		source.setAttribute('src', src);
+		video.appendChild(source);
+		video.play();
+  	}
 
 })();
 
