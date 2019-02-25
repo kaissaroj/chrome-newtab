@@ -9,6 +9,17 @@ Awesome videos & pictures in every new Tab
 ![Alt text](https://im2.ezgif.com/tmp/ezgif-2-9ca4c97b2527.gif "Screen  Shot 3")
 
 
+<h3>Process to install in Google Chrome as extension : </h3>
+<ul>
+<li> Open Terminal</li>
+<li> git clone https://github.com/kaissaroj/chrome-newtab.git </li>
+<li> OR just download from Download Zip Option </li>
+<li>Copy this link  <strong>chrome://extensions/</strong> and paste in Chrome</li>
+<li>Enable Developer Mode and click <strong>Load unpacked extension</strong> button and upload the folder</li>
+<li>Done.</li>
+</ul>
+
+
 ![Alt text](https://i.imgflip.com/2ltm3v.jpg "Screen  Shot 1")
 ![Alt text](https://i.imgflip.com/2ltm22.jpg "Screen  Shot 2")
 
