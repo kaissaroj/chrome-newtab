@@ -2,7 +2,7 @@
 A simple new tab page replacement for Google Chrome.
 
 
-**NEW**
+** **NEW** **
 <br>
 Awesome videos & pictures in every new Tab
 <br>
