@@ -7,24 +7,24 @@ const store = chrome.storage.sync;
 
 	let dom = document.getElementById("bgimg");
   	dom.style.backgroundColor =  'grey';
-	let rand =Math.random();
-	rand = (rand<0.5)?Math.floor(rand):Math.ceil(rand);
+// 	let rand =Math.random();
+// 	rand = (rand<0.5)?Math.floor(rand):Math.ceil(rand);
 
 
-	rand == 0 ? fetchVideo() : fetchImage();
-	console.log(rand);
-  	function fetchVideo(){
+// 	rand == 0 ? fetchVideo() : fetchImage();
+	fetchImage();
+//   	function fetchVideo(){
 
-		   fetch('http://sarojsubedi.info.np/services/randomvid.php')
-		  .then(resp => resp.json())
-		  .then((vid) => {
-		  		console.log(vid.src);
-		  		insertVideo(vid.src);
-		  })
-		   .catch(() => {
-		  		error();
-		  });
-  	}
+// 		   fetch('http://sarojsubedi.info.np/services/randomvid.php')
+// 		  .then(resp => resp.json())
+// 		  .then((vid) => {
+// 		  		console.log(vid.src);
+// 		  		insertVideo(vid.src);
+// 		  })
+// 		   .catch(() => {
+// 		  		error();
+// 		  });
+//   	}
   	function fetchImage(){
 		   fetch('https://source.unsplash.com/random/1024x600')
 		  .then(resp => resp)
