@@ -1,14 +1,6 @@
 # Chrome Newtab
 A simple new tab page replacement for Google Chrome.
 
-
-** **NEW** **
-<br>
-Awesome videos in every new Tab
-<br>
-![Alt text](https://im2.ezgif.com/tmp/ezgif-2-9ca4c97b2527.gif "Screen  Shot 3")
-
-
 <h3>Process to install in Google Chrome as extension : </h3>
 <ul>
 <li> Open Terminal</li>
