@@ -3,7 +3,9 @@ const store = chrome.storage.sync;
 (function () {
   let dom = document.getElementById("bgimg");
   dom.style.backgroundColor = "grey";
-  fetchImage();
+  let rand = Math.random();
+  rand = rand < 0.5 ? Math.floor(rand) : Math.ceil(rand);
+  rand == 0 ? fetchVideo() : fetchImage();
   function fetchImage() {
     fetch("https://source.unsplash.com/random/1024x600")
       .then((resp) => resp)
@@ -15,6 +17,23 @@ const store = chrome.storage.sync;
       .catch(() => {
         error();
       });
+  }
+  function fetchVideo() {
+    fetch("https://randomvideo.vercel.app/randomvideo")
+      .then((resp) => resp.json())
+      .then((res) => {
+        insertVideo(res?.src?.video_files[0].link);
+      })
+      .catch(() => {
+        error();
+      });
+  }
+  function insertVideo(src) {
+    var video = document.getElementById("myVideo");
+    var source = document.createElement("source");
+    source.setAttribute("src", src);
+    video.appendChild(source);
+    video.play();
   }
   function error() {
     let dom = document.getElementById("bgimg");
