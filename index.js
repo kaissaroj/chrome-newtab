@@ -2,7 +2,9 @@
 const store = chrome.storage.sync;
 (function () {
   let dom = document.getElementById("bgimg");
-  dom.style.backgroundColor = "grey";
+  dom.style.background = "linear-gradient(220.55deg, #5D85A6 0%, #0E2C5E 100%)";
+  dom.style.backgroundRepeat = "no-repeat";
+  dom.style.backgroundSize = "cover";
   let rand = Math.random();
   rand = rand < 0.5 ? Math.floor(rand) : Math.ceil(rand);
   rand == 0 ? fetchVideo() : fetchImage();
@@ -12,6 +14,7 @@ const store = chrome.storage.sync;
       .then((imagelists) => {
         let selectedImage = imagelists.url;
         let dom = document.getElementById("bgimg");
+        dom.style.backgroundColor = "grey";
         dom.style.backgroundImage = `url(${selectedImage})`;
       })
       .catch(() => {
